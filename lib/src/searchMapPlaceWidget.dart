@@ -306,7 +306,8 @@ class _SearchMapPlaceWidgetState extends State<SearchMapPlaceWidget> with Ticker
       }
     }
 
-    final response = await http.get(url);
+    Uri uriUrl = Uri.parse(url);
+    final response = await http.get(uriUrl);
     final json = JSON.jsonDecode(response.body);
 
     if (json["error_message"] != null) {
